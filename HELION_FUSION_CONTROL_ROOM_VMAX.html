@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#091219"><title>HELION_FUSION_CONTROL_ROOM_VMAX</title>
+<style>
+:root{--bg:#091219;--panel:#111e27;--panel2:#182a35;--line:#2b4654;--text:#e8f3f7;--muted:#94acb8;--cyan:#60e0f4;--green:#7be3b2;--amber:#ffd07a;--red:#ff6672;--blue:#78b9ff}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--text);font:14px/1.42 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}body{padding:10px;background-image:linear-gradient(#18303a40 1px,transparent 1px),linear-gradient(90deg,#18303a40 1px,transparent 1px);background-size:24px 24px}button,input,select{font:inherit}button{min-height:42px;padding:9px 11px;border:1px solid var(--line);border-radius:8px;background:#203540;color:var(--text);cursor:pointer;touch-action:manipulation}button:active{transform:translateY(1px);filter:brightness(1.15)}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}button:disabled{opacity:.45;cursor:not-allowed}.app{max-width:1300px;margin:auto}.top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}.brand{display:flex;gap:10px;align-items:center}.logo{width:44px;height:44px;border-radius:10px;border:1px solid #386879;background:#102631;display:grid;place-items:center;font-size:25px;color:var(--cyan)}.eyebrow{font-size:10px;letter-spacing:.18em;color:var(--cyan);font-weight:800}.title{font-size:21px;font-weight:900;letter-spacing:.07em}.sub{font-size:11px;color:var(--muted)}.status{display:flex;align-items:center;gap:8px;padding:8px 11px;background:#101d25;border:1px solid var(--line);border-radius:99px;font-size:11px}.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 10px currentColor}.dot.red{background:var(--red)}.layout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(330px,.92fr);gap:10px}.col{display:grid;gap:10px;align-content:start;min-width:0}.panel{background:linear-gradient(145deg,#152630,#0e1920);border:1px solid var(--line);border-radius:11px;overflow:hidden;min-width:0}.ph{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 13px;background:#172a35;border-bottom:1px solid var(--line)}.ph h2{margin:0;font-size:11px;letter-spacing:.13em;text-transform:uppercase}.tag{font-size:9px;color:var(--cyan);border:1px solid #345d6b;padding:4px 6px;border-radius:5px;white-space:nowrap}.body{padding:12px}.scene{height:310px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 52%,#164c60 0,#102b39 28%,#0b1820 65%,#070c10 100%);border-bottom:1px solid var(--line)}.scene:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 25px,#7dd8f20b 26px 27px),repeating-linear-gradient(90deg,transparent 0 25px,#7dd8f20b 26px 27px)}.sc-label{position:absolute;top:10px;left:12px;font-size:9px;letter-spacing:.13em;color:#b4cbd4}.sc-state{position:absolute;right:12px;top:10px;text-align:right;font-size:10px;color:var(--cyan)}.vessel{position:absolute;width:min(58%,300px);aspect-ratio:1;left:50%;top:53%;transform:translate(-50%,-50%);border:17px solid #526e7b;border-radius:50%;background:radial-gradient(circle,#07121a 0 32%,#1c3946 33% 46%,#0b1720 47%);box-shadow:0 0 0 5px #1a2d37,0 0 0 10px #344e5a,inset 0 0 0 5px #a5bac2,0 15px 30px #000b}.vessel:before{content:"";position:absolute;inset:8%;border:8px solid #294550;border-radius:50%;box-shadow:inset 0 0 0 3px #819ba5}.vessel:after{content:"";position:absolute;inset:-12px;border-radius:50%;background:repeating-conic-gradient(transparent 0deg 12deg,#b7c9ce 12.5deg 13.5deg,transparent 14deg 30deg);mask:radial-gradient(circle,transparent 0 82%,#000 83% 87%,transparent 88%)}.plasma{position:absolute;inset:30%;border-radius:50%;background:radial-gradient(ellipse at 45% 42%,#fffde0 0,#a4faff 10%,#54e5ff 24%,#159bd7 49%,#0a4a78 72%,#061b2a 100%);box-shadow:0 0 20px #40dfff,0 0 42px #1b9cdb,0 0 70px #1b9cdb66;animation:pulse 2.3s ease-in-out infinite;transition:all .3s}.plasma.off{opacity:.06;filter:grayscale(1);animation:none;box-shadow:none}.pipe{position:absolute;top:42%;height:48px;width:18%;border:5px solid #3b5864;box-shadow:inset 0 0 0 2px #8aa0a9;z-index:0}.pipe.l{left:5%;border-right:0;border-radius:12px 0 0 12px}.pipe.r{right:5%;border-left:0;border-radius:0 12px 12px 0}.leg{position:absolute;bottom:0;left:22%;width:18px;height:35px;background:linear-gradient(90deg,#162730,#728994,#263e49);clip-path:polygon(15% 0,85% 0,100% 100%,0 100%)}.leg.r{left:75%}.sc-bottom{position:absolute;bottom:10px;left:12px;right:12px;display:flex;justify-content:space-between;gap:8px;font-size:9px;color:#a7c0cb}.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;padding:10px}.metric{background:#0c171e;border:1px solid #263f4b;border-radius:8px;padding:9px;min-width:0}.mlabel{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}.mval{font-size:clamp(18px,2.5vw,25px);font-weight:850;letter-spacing:-.04em;margin:4px 0}.unit{font-size:10px;color:var(--muted);font-weight:500;letter-spacing:0}.bar{height:4px;border-radius:9px;background:#293d47;overflow:hidden}.bar i{display:block;height:100%;width:50%;background:var(--cyan);transition:width .25s}.hint{font-size:9px;color:var(--muted);margin-top:5px}.alarm{display:flex;gap:9px;padding:10px;border:1px solid #31525f;border-radius:8px;background:#0b171d;font-size:11px}.alarm.bad{border-color:#a5444d;background:#30191e;color:#ffdcde}.alarm.warn{border-color:#8d713e;background:#2b2518;color:#ffe4ac}.alarm .ico{font-size:16px}.control{margin-bottom:14px}.control:last-child{margin-bottom:0}.ctop{display:flex;justify-content:space-between;gap:8px;font-size:11px;margin-bottom:5px}.ctop strong{color:var(--cyan);font-variant-numeric:tabular-nums}input[type=range]{width:100%;accent-color:var(--cyan);min-height:23px}.ends{display:flex;justify-content:space-between;color:#78929e;font-size:9px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:7px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.primary{background:#104452;border-color:#287b8a}.danger{background:#482027;border-color:#a83e49}.green{background:#153d31;border-color:#2f8065}.control-note{font-size:10px;color:var(--muted);margin:0 0 12px}.chart{display:block;width:100%;height:150px;border:1px solid #263e49;border-radius:7px;background:#0a141a}.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:9px;color:var(--muted);padding-top:7px}.key{display:inline-block;width:9px;height:3px;background:var(--cyan);margin-right:4px;vertical-align:middle}.log{height:145px;overflow:auto;padding:8px;background:#091219;border:1px solid #243a44;border-radius:7px;font:10px/1.6 ui-monospace,Consolas,monospace;color:#aac2cc}.log div{border-bottom:1px dashed #20323a;padding:2px 0}.log .event{color:var(--amber)}.footer{text-align:center;color:#718995;font-size:9px;padding:12px 4px}.micro{font-size:9px;color:var(--muted)}select{width:100%;min-height:39px;background:#0b171e;color:var(--text);border:1px solid var(--line);border-radius:7px;padding:7px}.divider{height:1px;background:#243a45;margin:12px 0}.toggle-row{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:11px}.toggle-row input{width:18px;height:18px;accent-color:var(--cyan)}
+@keyframes pulse{0%,100%{transform:scale(.96);filter:brightness(.85)}50%{transform:scale(1.05);filter:brightness(1.25)}}
+@media(max-width:800px){body{padding:7px}.layout{grid-template-columns:1fr}.scene{height:270px}.rightcol{grid-template-columns:1fr}.title{font-size:19px}}
+@media(max-width:390px){.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.scene{height:240px}.body{padding:10px}.ph{padding:10px}.grid3{grid-template-columns:1fr 1fr}.mval{font-size:21px}}
+@media(orientation:landscape) and (max-height:570px) and (min-width:650px){.layout{grid-template-columns:minmax(0,1fr) minmax(330px,.9fr)}.scene{height:230px}.metrics{grid-template-columns:repeat(3,minmax(0,1fr));padding:7px}.metric{padding:7px}.mval{font-size:19px}.chart{height:110px}}
+
+/* Comprehensive upgrade */
+.panel{box-shadow:0 7px 22px #0003}
+.metric{transition:border-color .2s,background .2s}
+.metric:hover{border-color:#477080}
+button{transition:filter .15s,border-color .15s,background .15s}
+button:hover{filter:brightness(1.12);border-color:#4e8292}
+body.compact .body{padding:8px}
+body.compact .control{margin-bottom:8px}
+body.compact .scene{height:230px}
+body.hide-hints .hint,body.hide-hints .ends,body.hide-hints .micro{display:none}
+@media(max-width:520px){.grid2{grid-template-columns:1fr 1fr}.metric{padding:8px}.mlabel{font-size:8px}.mval{font-size:20px}.ph h2{font-size:10px}.status{font-size:10px}}
+
+
+.mission-list{display:grid;gap:7px}
+.mission{display:flex;align-items:flex-start;gap:9px;padding:9px;border:1px solid #29424d;background:#0c171e;border-radius:7px;font-size:11px}
+.mission input{width:17px;height:17px;accent-color:var(--green);flex:0 0 auto;margin:1px 0 0}
+.mission span{display:grid;gap:3px}.mission small{font-size:9px;color:var(--muted)}
+.health-list{display:grid;gap:5px}
+.health-item{display:flex;justify-content:space-between;gap:8px;padding:7px 9px;background:#0c171e;border:1px solid #263e49;border-radius:6px;font-size:10px}
+.health-item b{color:var(--green);font-size:9px;letter-spacing:.05em}
+.health-item b.warn{color:var(--amber)}.health-item b.bad{color:var(--red)}
+
+</style></head>
+<body><div class="app">
+<header class="top"><div class="brand"><div class="logo">☼</div><div><div class="eyebrow">ADVANCED ENERGY LAB / SIM-07</div><div class="title">HELION <span style="color:var(--cyan)">CONTROL ROOM</span> <span style="font-size:11px;color:var(--amber)">VMAX</span></div><div class="sub">FUSION SANDBOX • VMAX EDITION • OFFLINE SINGLE-FILE</div></div></div><div class="status"><span id="dot" class="dot"></span><b id="status">READY</b><span>•</span><span id="clock">T+00:00</span></div></header>
+<div class="layout">
+<div class="col">
+<section class="panel"><div class="ph"><h2>01 / Reaktor & Telemetri</h2><span class="tag">SIMULASI ABSTRAK</span></div>
+<div class="scene"><div class="sc-label">TOKAMAK CHAMBER / LIVE VISUAL</div><div class="sc-state">PLASMA<br><b id="plasmaState">STANDBY</b></div><div class="pipe l"></div><div class="pipe r"></div><div class="vessel"><div id="plasma" class="plasma off"></div></div><div class="leg"></div><div class="leg r"></div><div class="sc-bottom"><span>MAGNETIC CONFINEMENT: <b id="confState">STANDBY</b></span><span>SCHEMATIC / NOT TO SCALE</span></div></div>
+<div class="metrics">
+<div class="metric"><div class="mlabel">Suhu inti relatif</div><div class="mval"><span id="temp">18.0</span><span class="unit"> kU*</span></div><div class="bar"><i id="tempBar"></i></div><div class="hint" id="tempHint">Dingin / standby</div></div>
+<div class="metric"><div class="mlabel">Daya keluaran</div><div class="mval"><span id="power">0</span><span class="unit"> MW-eq*</span></div><div class="bar"><i id="powerBar"></i></div><div class="hint">Indeks fiktif</div></div>
+<div class="metric"><div class="mlabel">Stabilitas plasma</div><div class="mval"><span id="stable">96</span><span class="unit"> %</span></div><div class="bar"><i id="stableBar"></i></div><div class="hint" id="stableHint">Nominal</div></div>
+<div class="metric"><div class="mlabel">Pendinginan</div><div class="mval"><span id="coolRead">80</span><span class="unit"> %</span></div><div class="bar"><i id="coolBar"></i></div><div class="hint" id="coolHint">Aliran nominal</div></div>
+<div class="metric"><div class="mlabel">Vakum relatif</div><div class="mval"><span id="vacRead">92</span><span class="unit"> %</span></div><div class="bar"><i id="vacBar"></i></div><div class="hint">Indeks ruang simulasi</div></div>
+<div class="metric"><div class="mlabel">Integritas pelindung</div><div class="mval"><span id="shieldRead">100</span><span class="unit"> %</span></div><div class="bar"><i id="shieldBar"></i></div><div class="hint" id="shieldHint">Normal</div></div>
+</div><div class="body" style="padding-top:0"><div id="alarm" class="alarm"><span class="ico">●</span><div><b id="alarmTitle">SISTEM SIAP</b><div id="alarmText">Lakukan pemeriksaan awal sebelum memulai eksperimen.</div></div></div></div></section>
+<section class="panel"><div class="ph"><h2>02 / Grafik Telemetri</h2><span class="tag">60 SAMPLE</span></div><div class="body"><canvas id="chart" class="chart" aria-label="Grafik simulasi suhu, daya dan kestabilan"></canvas><div class="legend"><span><i class="key"></i>Suhu</span><span><i class="key" style="background:#ffd07a"></i>Daya</span><span><i class="key" style="background:#7be3b2"></i>Stabilitas</span><span style="margin-left:auto">Skala relatif 0–100</span></div></div></section>
+</div>
+<div class="col">
+<section class="panel"><div class="ph"><h2>03 / Kontrol Operator</h2><span class="tag">MANUAL</span></div><div class="body">
+<p class="control-note">Kontrol mengubah model permainan abstrak. Tidak merepresentasikan parameter atau prosedur pengoperasian reaktor nyata.</p>
+<div class="control"><div class="ctop"><label for="drive">Eksitasi plasma</label><strong><span id="driveVal">42</span>%</strong></div><input id="drive" type="range" min="0" max="100" value="42"><div class="ends"><span>MINIMUM</span><span>MAKSIMUM</span></div></div>
+<div class="control"><div class="ctop"><label for="cooling">Kapasitas pendinginan</label><strong><span id="coolingVal">80</span>%</strong></div><input id="cooling" type="range" min="0" max="100" value="80"><div class="ends"><span>RENDAH</span><span>TINGGI</span></div></div>
+<div class="control"><div class="ctop"><label for="confinement">Konfinemen magnetik</label><strong><span id="confinementVal">72</span>%</strong></div><input id="confinement" type="range" min="0" max="100" value="72"><div class="ends"><span>LEMAH</span><span>KUAT</span></div></div>
+<div class="control"><div class="ctop"><label for="vacuum">Kondisi vakum simulasi</label><strong><span id="vacuumVal">92</span>%</strong></div><input id="vacuum" type="range" min="0" max="100" value="92"><div class="ends"><span>BURUK</span><span>BAIK</span></div></div>
+<div class="control"><div class="ctop"><label for="fuel">Laju bahan bakar fiktif</label><strong><span id="fuelVal">35</span>%</strong></div><input id="fuel" type="range" min="0" max="100" value="35"><div class="ends"><span>RENDAH</span><span>TINGGI</span></div></div>
+<div class="control"><div class="ctop"><label for="load">Beban generator</label><strong><span id="loadVal">40</span>%</strong></div><input id="load" type="range" min="0" max="100" value="40"><div class="ends"><span>RINGAN</span><span>BERAT</span></div></div>
+<div class="divider"></div>
+<div class="grid2"><button id="startup" class="primary">⏵ Startup sequence</button><button id="pause">Ⅱ Jeda simulasi</button><button id="scram" class="danger">⛔ SCRAM darurat</button><button id="reset">↻ Reset sandbox</button></div>
+<div style="height:7px"></div><div class="grid2"><button id="auto" class="green">◉ Auto-control: OFF</button><button id="ack">✓ Akui alarm</button></div>
+<div style="height:7px"></div><div class="grid2"><button id="vent">▤ Uji sistem pendingin</button><button id="diagnostic">⌕ Diagnostik sistem</button></div>
+</div></section>
+<section class="panel"><div class="ph"><h2>04 / Konfigurasi Eksperimen</h2><span class="tag">SANDBOX</span></div><div class="body">
+<div class="control"><div class="ctop"><label for="scenario">Skenario gangguan</label><strong>SIMULASI</strong></div><select id="scenario"><option value="none">Normal — tanpa gangguan</option><option value="cool">Penurunan pendinginan</option><option value="vac">Kualitas vakum menurun</option><option value="mag">Gangguan konfinemen</option><option value="load">Beban generator melonjak</option></select></div>
+<div class="grid2"><button id="applyScenario" class="primary">Terapkan skenario</button><button id="clearScenario">Hapus gangguan</button></div>
+<div class="divider"></div><div class="toggle-row"><label for="sound">Bunyi alarm (jika didukung)</label><input id="sound" type="checkbox"></div>
+<p class="micro">Alarm audio hanya berbunyi setelah interaksi pengguna dan jika browser mengizinkan audio.</p>
+</div></section>
+
+<section class="panel"><div class="ph"><h2>05 / Sistem Pendukung</h2><span class="tag">MONITORING</span></div><div class="body">
+<div class="grid2">
+  <div class="metric"><div class="mlabel">Efisiensi generator</div><div class="mval"><span id="genEff">84</span><span class="unit"> %</span></div><div class="bar"><i id="genEffBar"></i></div><div class="hint">Indeks fiktif konversi daya</div></div>
+  <div class="metric"><div class="mlabel">Cadangan pendingin</div><div class="mval"><span id="coolReserve">76</span><span class="unit"> %</span></div><div class="bar"><i id="coolReserveBar"></i></div><div class="hint">Persediaan virtual</div></div>
+  <div class="metric"><div class="mlabel">Kondisi kumparan</div><div class="mval"><span id="coilHealth">98</span><span class="unit"> %</span></div><div class="bar"><i id="coilHealthBar"></i></div><div class="hint">Kesehatan komponen simulasi</div></div>
+  <div class="metric"><div class="mlabel">Indeks beban sistem</div><div class="mval"><span id="systemLoad">22</span><span class="unit"> %</span></div><div class="bar"><i id="systemLoadBar"></i></div><div class="hint">Beban bantu virtual</div></div>
+</div>
+<div class="divider"></div>
+<div class="control"><div class="ctop"><label for="generatorEffControl">Efisiensi generator</label><strong><span id="generatorEffControlVal">84</span>%</strong></div><input id="generatorEffControl" type="range" min="20" max="100" value="84"><div class="ends"><span>RENDAH</span><span>TINGGI</span></div></div>
+<div class="control"><div class="ctop"><label for="reserveControl">Cadangan pendingin</label><strong><span id="reserveControlVal">76</span>%</strong></div><input id="reserveControl" type="range" min="0" max="100" value="76"><div class="ends"><span>MENIPIS</span><span>PENUH</span></div></div>
+<div class="control"><div class="ctop"><label for="coilControl">Kondisi kumparan magnetik</label><strong><span id="coilControlVal">98</span>%</strong></div><input id="coilControl" type="range" min="30" max="100" value="98"><div class="ends"><span>TERKIKIS</span><span>PRIMA</span></div></div>
+<div class="divider"></div>
+<div class="grid2"><button id="saveConfig" class="primary">💾 Simpan konfigurasi</button><button id="loadConfig">↩ Muat konfigurasi</button><button id="exportReport">▤ Ekspor laporan .txt</button><button id="fullscreen">⛶ Layar penuh</button></div>
+<p class="micro">Penyimpanan konfigurasi memakai penyimpanan lokal browser jika tersedia. Nilai-nilai di panel ini adalah indeks fiktif untuk simulasi, bukan spesifikasi perangkat nyata.</p>
+</div></section>
+<section class="panel"><div class="ph"><h2>06 / Profil & Pengaturan</h2><span class="tag">OPERATOR</span></div><div class="body">
+<div class="control"><div class="ctop"><label for="profile">Profil eksperimen</label><strong>PRESET</strong></div><select id="profile"><option value="balanced">Seimbang — demonstrasi awal</option><option value="low">Daya rendah — fokus stabilitas</option><option value="stress">Uji stres — skenario fiktif</option><option value="cooling">Fokus pendinginan</option></select></div>
+<div class="grid2"><button id="applyProfile" class="primary">Terapkan profil</button><button id="safeProfile" class="green">Profil aman</button></div>
+<div class="divider"></div>
+<div class="control"><div class="ctop"><label for="simSpeed">Kecepatan simulasi</label><strong><span id="simSpeedVal">1</span>×</strong></div><input id="simSpeed" type="range" min="1" max="4" value="1"><div class="ends"><span>REAL-TIME</span><span>4× CEPAT</span></div></div>
+<div class="toggle-row"><label for="compactMode">Mode panel ringkas</label><input id="compactMode" type="checkbox"></div>
+<div class="toggle-row" style="margin-top:10px"><label for="showHints">Tampilkan petunjuk operator</label><input id="showHints" type="checkbox" checked></div>
+<div id="operatorHint" class="alarm" style="margin-top:10px"><span class="ico">ⓘ</span><div><b>CATATAN OPERATOR</b><div>Mulai dari profil seimbang. Jalankan simulasi, amati grafik, lalu coba satu gangguan dalam satu waktu.</div></div></div>
+</div></section>
+
+
+<section class="panel"><div class="ph"><h2>07 / Misi & Kesehatan Sistem</h2><span class="tag">VMAX DASHBOARD</span></div><div class="body">
+<div class="grid2">
+  <div class="metric"><div class="mlabel">Waktu berjalan</div><div class="mval"><span id="uptimeRead">00:00</span></div><div class="hint">Waktu simulasi aktif</div></div>
+  <div class="metric"><div class="mlabel">Skor operasi</div><div class="mval"><span id="opsScore">96</span><span class="unit"> / 100</span></div><div class="bar"><i id="opsScoreBar"></i></div><div class="hint">Skor fiktif dari indeks stabilitas</div></div>
+</div>
+<div class="divider"></div>
+<div class="ctop"><label>Daftar misi operator</label><strong id="missionCount">0 / 4</strong></div>
+<div class="mission-list">
+  <label class="mission"><input type="checkbox" id="missionStable"> <span><b>Stabilitas terjaga</b><small>Jaga indeks stabilitas simulasi minimal 75.</small></span></label>
+  <label class="mission"><input type="checkbox" id="missionCooling"> <span><b>Sistem pendingin siap</b><small>Atur pendinginan pada 65% atau lebih.</small></span></label>
+  <label class="mission"><input type="checkbox" id="missionVacuum"> <span><b>Kondisi vakum baik</b><small>Atur indeks vakum pada 75% atau lebih.</small></span></label>
+  <label class="mission"><input type="checkbox" id="missionReport"> <span><b>Laporan berhasil dibuat</b><small>Gunakan tombol ekspor laporan.</small></span></label>
+</div>
+<div class="grid2" style="margin-top:9px"><button id="checkMissions" class="primary">Periksa misi</button><button id="resetMissions">Reset misi</button></div>
+<div class="divider"></div>
+<div class="ctop"><label>Panel kesehatan komponen</label><strong id="healthSummary">NORMAL</strong></div>
+<div class="health-list">
+ <div class="health-item"><span>Generator virtual</span><b id="healthGenerator">NORMAL</b></div>
+ <div class="health-item"><span>Cadangan pendingin</span><b id="healthCooling">NORMAL</b></div>
+ <div class="health-item"><span>Kumparan virtual</span><b id="healthCoil">NORMAL</b></div>
+ <div class="health-item"><span>Indeks stabilitas</span><b id="healthStability">NORMAL</b></div>
+</div>
+<div class="grid2" style="margin-top:9px"><button id="fullDiagnostic" class="primary">Jalankan diagnostik lengkap</button><button id="maintenance">Pemulihan sandbox</button></div>
+<p class="micro">Misi, kesehatan, dan skor adalah mekanik game/simulasi. Pemulihan hanya mengubah indeks virtual; tidak merepresentasikan prosedur perawatan fasilitas nyata.</p>
+</div></section>
+
+<section class="panel"><div class="ph"><h2>08 / Event Log</h2><button id="export" style="min-height:30px;padding:5px 8px;font-size:10px">Unduh log .txt</button></div><div class="body"><div id="log" class="log" aria-live="polite"></div><div style="height:7px"></div><div class="grid2"><button id="clearLog">Bersihkan log</button><button id="snapshot">Simpan snapshot</button></div></div></section>
+</div></div>
+<div class="footer">HELION FUSION SANDBOX • Semua angka merupakan indeks fiktif, bukan satuan atau model fisika terkalibrasi. Bukan perangkat kendali reaktor sungguhan.</div></div>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const ids=['drive','cooling','confinement','vacuum','fuel','load'];
+const controls=Object.fromEntries(ids.map(id=>[id,$(id)]));
+const S={running:false,scram:false,auto:false,elapsed:0,temp:18,power:0,stable:96,shield:100,vac:92,cool:80,scenario:'none',history:[],alarmKey:'',alarmAck:false,events:[],lastTick:0};
+const clamp=(n,a=0,b=100)=>Math.max(a,Math.min(b,n));
+const time=()=>`T+${String(Math.floor(S.elapsed/60)).padStart(2,'0')}:${String(S.elapsed%60).padStart(2,'0')}`;
+function log(msg,event=false){const line=`[${time()}] ${msg}`;S.events.push(line);if(S.events.length>500)S.events.shift();const d=document.createElement('div');d.textContent=line;if(event)d.className='event';$('log').prepend(d);while($('log').children.length>70)$('log').lastChild.remove()}
+function val(id){return Number(controls[id].value)}
+function setControl(id,n){controls[id].value=clamp(Math.round(n));updateLabels()}
+function updateLabels(){ids.forEach(id=>$(id+'Val').textContent=controls[id].value)}
+function bar(id,n,color){$(id).style.width=clamp(n)+'%';if(color)$(id).style.background=color}
+function setAlarm(level,title,msg){const key=level+'|'+title+'|'+msg;if(key===S.alarmKey)return;S.alarmKey=key;S.alarmAck=false;const el=$('alarm');el.className='alarm'+(level==='bad'?' bad':level==='warn'?' warn':'');$('alarmTitle').textContent=title;$('alarmText').textContent=msg;if(level!=='ok')log('ALARM: '+title,true);if($('sound').checked&&level!=='ok')beep()}
+function beep(){try{const C=window.AudioContext||window.webkitAudioContext;if(!C)return;const c=new C(),o=c.createOscillator(),g=c.createGain();o.type='square';o.frequency.value=levelFreq();g.gain.value=.035;o.connect(g);g.connect(c.destination);o.start();o.stop(c.currentTime+.16);o.onended=()=>c.close()}catch(e){}}
+function levelFreq(){return 660}
+function render(){
+ const d=val('drive'),cool=val('cooling'),conf=val('confinement'),vac=val('vacuum'),fuel=val('fuel'),load=val('load');
+ $('temp').textContent=S.temp.toFixed(1);$('power').textContent=Math.round(S.power);$('stable').textContent=Math.round(S.stable);$('coolRead').textContent=cool;$('vacRead').textContent=vac;$('shieldRead').textContent=Math.round(S.shield);
+ bar('tempBar',S.temp,S.temp>78?'#ff6672':'#60e0f4');bar('powerBar',S.power,'#ffd07a');bar('stableBar',S.stable,S.stable<35?'#ff6672':'#7be3b2');bar('coolBar',cool,cool<30?'#ff6672':'#60e0f4');bar('vacBar',vac,vac<35?'#ff6672':'#60e0f4');bar('shieldBar',S.shield,S.shield<45?'#ff6672':'#7be3b2');
+ $('tempHint').textContent=S.temp>78?'Indeks panas tinggi':S.temp<25?'Dingin / standby':'Rentang kerja simulasi';$('stableHint').textContent=S.stable<35?'Fluktuatif':S.stable<65?'Perlu koreksi':'Nominal';$('coolHint').textContent=cool<30?'Kapasitas rendah':'Sirkulasi '+(cool>80?'tinggi':'nominal');$('shieldHint').textContent=S.shield<45?'Integritas menurun':'Normal';
+ $('plasma').classList.toggle('off',!S.running||S.scram);$('plasma').style.filter=`hue-rotate(${Math.round((100-S.stable)*1.2)}deg)`;$('plasma').style.transform=`scale(${.85+S.power/500})`;
+ $('plasmaState').textContent=S.scram?'SCRAM':!S.running?'STANDBY':S.stable<35?'UNSTABLE':S.stable<65?'FLUCTUATING':'CONFINED';$('confState').textContent=!S.running?'STANDBY':conf>75?'HIGH':conf>45?'NOMINAL':'LOW';
+ $('clock').textContent=time();$('dot').classList.toggle('red',S.scram||S.temp>80||S.stable<30);$('status').textContent=S.scram?'SCRAM LATCHED':S.running?'RUNNING':'PAUSED / STANDBY';
+ $('startup').disabled=S.running&&!S.scram;$('pause').disabled=!S.running;$('scram').disabled=S.scram;
+ if(S.scram)setAlarm('bad','SCRAM AKTIF','Eksitasi simulasi dihentikan. Reset sandbox untuk memulai ulang.');
+ else if(S.temp>82)setAlarm('bad','INDEKS SUHU KRITIS','Turunkan eksitasi dan beban; naikkan pendinginan dalam simulasi.');
+ else if(S.stable<28)setAlarm('bad','PLASMA TIDAK STABIL','Kurangi eksitasi dan periksa konfinemen serta vakum.');
+ else if(cool<25)setAlarm('bad','KAPASITAS PENDINGIN RENDAH','Tingkatkan kapasitas pendinginan simulasi.');
+ else if(vac<30)setAlarm('warn','KUALITAS VAKUM RENDAH','Atur kembali kontrol vakum simulasi.');
+ else if(S.shield<45)setAlarm('warn','INTEGRITAS PELINDUNG TURUN','Beban gangguan terlalu tinggi dalam model sandbox.');
+ else if(coolReserve<20)setAlarm('warn','CADANGAN PENDINGIN MENIPIS','Indeks cadangan pendingin virtual rendah; pulihkan lewat kontrol sandbox.');
+ else if(coilHealth<45)setAlarm('warn','KONDISI KUMPARAN MENURUN','Indeks kondisi kumparan virtual berada di bawah ambang.');
+ else if(genEff<35)setAlarm('warn','EFISIENSI GENERATOR RENDAH','Periksa kontrol efisiensi generator pada sandbox.');
+ else if(S.running)setAlarm('ok','SISTEM DALAM PEMANTAUAN','Tidak ada ambang alarm utama yang terlampaui.');
+ else setAlarm('ok','SISTEM SIAP / JEDA','Mulai startup sequence untuk menjalankan simulasi.');
+ if(typeof renderExtra==='function')renderExtra();
+ if(typeof updateMissionBoard==='function')updateMissionBoard();
+ drawChart();
+}
+function tick(){
+ if(!S.running||S.scram)return;S.elapsed++;
+ const d=val('drive'),cool=val('cooling'),conf=val('confinement'),vac=val('vacuum'),fuel=val('fuel'),load=val('load');
+ let faultCool=S.scenario==='cool'?30:0,faultVac=S.scenario==='vac'?32:0,faultMag=S.scenario==='mag'?28:0,faultLoad=S.scenario==='load'?30:0;
+ const effCool=Math.max(0,cool-faultCool),effVac=Math.max(0,vac-faultVac),effConf=Math.max(0,conf-faultMag);
+ // Educational game model only: abstract index updates, not reactor physics.
+ const targetTemp=clamp(12+d*.58+fuel*.15+(100-effCool)*.36+faultLoad*.2);
+ S.temp+=(targetTemp-S.temp)*.09+(Math.random()-.5)*.6;
+ const targetStable=clamp(36+effConf*.36+effVac*.18+effCool*.12-d*.12-Math.max(0,S.temp-68)*1.0-faultMag*.55);
+ S.stable+=(targetStable-S.stable)*.10+(Math.random()-.5)*.8;
+ const targetPower=S.scram?0:clamp((d*.55+fuel*.12)*(S.stable/100)*(effConf/100+.2)*(effVac/100+.2)*(1-load*.006)*(genEff/100));
+ S.power+=(targetPower-S.power)*.12;
+ S.shield=clamp(S.shield-(Math.max(0,S.temp-78)*.018+faultLoad*.003+(coilHealth<55?.025:0))+(cool>60?.025:0),15,100);
+ coolReserve=clamp(coolReserve-(S.temp>65?.025:0)+(cool>75?.012:0),0,100);S.vac=effVac;S.cool=effCool;S.temp=clamp(S.temp);S.stable=clamp(S.stable);S.power=clamp(S.power);
+ S.history.push({temp:S.temp,power:S.power,stable:S.stable});if(S.history.length>60)S.history.shift();
+ if(S.elapsed%20===0)log(`Telemetry • suhu ${S.temp.toFixed(1)} • daya ${Math.round(S.power)} • stabilitas ${Math.round(S.stable)}%`);
+ if(S.auto)autoControl();render();
+}
+function autoControl(){if(S.scram)return;const c=val('cooling'),d=val('drive'),conf=val('confinement');if(S.temp>72&&c<95)setControl('cooling',c+2);if(S.temp>78&&d>10)setControl('drive',d-2);if(S.stable<45&&conf<96)setControl('confinement',conf+2);if(S.temp<35&&d<65)setControl('drive',d+1)}
+function drawChart(){const c=$('chart'),r=c.getBoundingClientRect();if(!r.width||!r.height)return;const ratio=Math.min(devicePixelRatio||1,2);c.width=Math.round(r.width*ratio);c.height=Math.round(r.height*ratio);const x=c.getContext('2d');x.scale(ratio,ratio);const w=r.width,h=r.height;x.clearRect(0,0,w,h);x.strokeStyle='#223a45';x.lineWidth=1;for(let i=1;i<5;i++){x.beginPath();x.moveTo(0,i*h/5);x.lineTo(w,i*h/5);x.stroke()}for(let i=1;i<7;i++){x.beginPath();x.moveTo(i*w/7,0);x.lineTo(i*w/7,h);x.stroke()}[['temp','#60e0f4'],['power','#ffd07a'],['stable','#7be3b2']].forEach(([k,col])=>{if(S.history.length<2)return;x.beginPath();x.strokeStyle=col;x.lineWidth=2;S.history.forEach((p,i)=>{const px=4+i/(Math.max(59,S.history.length-1))*(w-8),py=h-5-clamp(p[k])/100*(h-10);i?x.lineTo(px,py):x.moveTo(px,py)});x.stroke()})}
+function start(){if(S.scram){log('SCRAM terkunci • reset sandbox diperlukan',true);return}if(S.running)return;S.running=true;log('Startup sequence / simulasi dilanjutkan');render()}
+$('startup').addEventListener('click',()=>{if(S.scram)return;S.running=true;setControl('drive',Math.max(12,val('drive')));log('STARTUP: sistem virtual masuk tahap RUN',true);render()});
+$('pause').addEventListener('click',()=>{S.running=false;log('Operator menjeda simulasi');render()});
+$('scram').addEventListener('click',()=>{S.scram=true;S.running=false;setControl('drive',0);S.power=0;S.stable=Math.min(S.stable,40);log('SCRAM MANUAL: eksitasi dihentikan dalam simulasi',true);render()});
+$('reset').addEventListener('click',()=>{S.running=false;S.scram=false;S.auto=false;S.elapsed=0;S.temp=18;S.power=0;S.stable=96;S.shield=100;S.vac=92;S.cool=80;S.history=[];S.scenario='none';$('scenario').value='none';ids.forEach((id,i)=>setControl(id,[42,80,72,92,35,40][i]));extraControls.generatorEffControl.value=84;extraControls.reserveControl.value=76;extraControls.coilControl.value=98;coolReserve=76;renderExtra();$('profile').value='balanced';simSpeed=1;$('simSpeed').value=1;$('simSpeedVal').textContent='1';$('auto').textContent='◉ Auto-control: OFF';S.alarmKey='';$('log').textContent='';log('Sandbox direset • siap untuk startup');render()});
+$('auto').addEventListener('click',()=>{S.auto=!S.auto;$('auto').textContent='◉ Auto-control: '+(S.auto?'ON':'OFF');log('Auto-control '+(S.auto?'diaktifkan':'dinonaktifkan'));render()});
+$('ack').addEventListener('click',()=>{S.alarmAck=true;log('Operator mengakui alarm aktif');$('alarmText').textContent+=' • Diakui operator.'});
+$('vent').addEventListener('click',()=>{if(S.scram){log('Uji pendinginan tidak tersedia saat SCRAM aktif',true);return}setControl('cooling',Math.min(100,val('cooling')+10));log('Uji sistem pendingin selesai • kapasitas simulasi +10%',true);render()});
+$('diagnostic').addEventListener('click',()=>{const problems=[];if(S.temp>75)problems.push('indeks suhu tinggi');if(S.stable<55)problems.push('stabilitas rendah');if(val('cooling')<35)problems.push('pendinginan rendah');if(val('vacuum')<40)problems.push('vakum relatif rendah');if(S.shield<60)problems.push('integritas pelindung menurun');log(problems.length?'DIAGNOSTIK: '+problems.join('; '):'DIAGNOSTIK: semua indeks dalam rentang simulasi normal',problems.length>0)});
+$('applyScenario').addEventListener('click',()=>{S.scenario=$('scenario').value;log('Skenario gangguan diterapkan: '+$('scenario').selectedOptions[0].text,true);render()});
+$('clearScenario').addEventListener('click',()=>{S.scenario='none';$('scenario').value='none';log('Semua gangguan skenario dibersihkan');render()});
+$('clearLog').addEventListener('click',()=>{$('log').textContent='';log('Log tampilan dibersihkan')});
+$('snapshot').addEventListener('click',()=>{log(`SNAPSHOT • suhu ${S.temp.toFixed(1)} • daya ${S.power.toFixed(1)} • stabilitas ${S.stable.toFixed(1)} • pendinginan ${val('cooling')}%`);});
+$('export').addEventListener('click',()=>{const blob=new Blob([S.events.join('\n')+'\n'],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='helion-event-log.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);log('Event log diekspor sebagai file teks')});
+ids.forEach(id=>controls[id].addEventListener('input',()=>{updateLabels();render()}));
+window.addEventListener('resize',drawChart);
+
+// Added subsystem controls: all values are fictional training indices.
+const extraIds=['generatorEffControl','reserveControl','coilControl'];
+const extraControls=Object.fromEntries(extraIds.map(id=>[id,$(id)]));
+let genEff=84, coolReserve=76, coilHealth=98, simSpeed=1;
+function renderExtra(){
+  genEff=Number(extraControls.generatorEffControl.value);
+  coilHealth=Number(extraControls.coilControl.value);
+  $('genEff').textContent=Math.round(genEff);$('coolReserve').textContent=Math.round(coolReserve);
+  $('coilHealth').textContent=Math.round(coilHealth);
+  const sysLoad=clamp(val('load')*.58+val('drive')*.18+(100-genEff)*.24);
+  $('systemLoad').textContent=Math.round(sysLoad);
+  bar('genEffBar',genEff,genEff<45?'#ff6672':'#60e0f4');
+  bar('coolReserveBar',coolReserve,coolReserve<25?'#ff6672':'#7be3b2');
+  bar('coilHealthBar',coilHealth,coilHealth<55?'#ff6672':'#7be3b2');
+  bar('systemLoadBar',sysLoad,sysLoad>75?'#ff6672':'#ffd07a');
+  extraIds.forEach(id=>$(id+'Val').textContent=extraControls[id].value);
+  $('simSpeedVal').textContent=simSpeed;
+}
+extraIds.forEach(id=>extraControls[id].addEventListener('input',()=>{if(id==='reserveControl')coolReserve=Number(extraControls.reserveControl.value);renderExtra();render();}));
+$('simSpeed').addEventListener('input',()=>{simSpeed=Number($('simSpeed').value);$('simSpeedVal').textContent=simSpeed;log('Kecepatan simulasi: '+simSpeed+'×');});
+$('compactMode').addEventListener('change',()=>{document.body.classList.toggle('compact',$('compactMode').checked);});
+$('showHints').addEventListener('change',()=>{document.body.classList.toggle('hide-hints',!$('showHints').checked);});
+$('applyProfile').addEventListener('click',()=>{
+ const p=$('profile').value;
+ const profiles={
+  balanced:{drive:42,cooling:80,confinement:72,vacuum:92,fuel:35,load:40,generatorEffControl:84,reserveControl:76,coilControl:98},
+  low:{drive:20,cooling:88,confinement:88,vacuum:95,fuel:18,load:20,generatorEffControl:90,reserveControl:90,coilControl:99},
+  stress:{drive:82,cooling:48,confinement:54,vacuum:61,fuel:66,load:85,generatorEffControl:60,reserveControl:38,coilControl:72},
+  cooling:{drive:34,cooling:95,confinement:75,vacuum:92,fuel:25,load:30,generatorEffControl:82,reserveControl:96,coilControl:96}
+ };
+ Object.entries(profiles[p]).forEach(([id,v])=>{if(controls[id])setControl(id,v);else if(extraControls[id])extraControls[id].value=v;});
+ coolReserve=Number(extraControls.reserveControl.value);renderExtra();log('Profil diterapkan: '+$('profile').selectedOptions[0].text,true);render();
+});
+$('safeProfile').addEventListener('click',()=>{$('profile').value='low';$('applyProfile').click();log('Profil aman dipilih');});
+$('saveConfig').addEventListener('click',()=>{
+ const data={controls:Object.fromEntries(ids.map(id=>[id,val(id)])),extra:Object.fromEntries(extraIds.map(id=>[id,Number(extraControls[id].value)])),profile:$('profile').value,simSpeed};
+ try{localStorage.setItem('helion-config-v2',JSON.stringify(data));log('Konfigurasi tersimpan di browser ini');}
+ catch(e){log('Penyimpanan lokal tidak tersedia di browser ini',true);}
+});
+$('loadConfig').addEventListener('click',()=>{
+ try{const raw=localStorage.getItem('helion-config-v2');if(!raw){log('Belum ada konfigurasi tersimpan',true);return}
+ const d=JSON.parse(raw);Object.entries(d.controls||{}).forEach(([id,v])=>{if(controls[id])setControl(id,v)});
+ Object.entries(d.extra||{}).forEach(([id,v])=>{if(extraControls[id])extraControls[id].value=v});coolReserve=Number(extraControls.reserveControl.value);
+ if(d.profile)$('profile').value=d.profile;if(d.simSpeed){simSpeed=d.simSpeed;$('simSpeed').value=simSpeed;$('simSpeedVal').textContent=simSpeed}
+ renderExtra();render();log('Konfigurasi tersimpan dimuat');
+ }catch(e){log('Gagal memuat konfigurasi lokal',true);}
+});
+$('exportReport').addEventListener('click',()=>{
+ const lines=['HELION_FUSION_CONTROL_ROOM_VMAX — LAPORAN SIMULASI','Waktu simulasi: '+time(),'Status: '+$('status').textContent,
+ 'Suhu relatif: '+S.temp.toFixed(1),'Daya indeks: '+S.power.toFixed(1),'Stabilitas: '+S.stable.toFixed(1)+'%',
+ 'Pendinginan: '+val('cooling')+'%','Vakum relatif: '+val('vacuum')+'%','Integritas pelindung: '+S.shield.toFixed(1)+'%',
+ 'Efisiensi generator fiktif: '+genEff+'%','Cadangan pendingin fiktif: '+coolReserve+'%','Kondisi kumparan fiktif: '+coilHealth+'%',
+ 'Skenario: '+$('scenario').selectedOptions[0].text,'','CATATAN: Seluruh nilai adalah indeks sandbox fiktif, bukan parameter atau hasil reaktor nyata.','EVENT LOG:',...S.events];
+ const blob=new Blob([lines.join('\n')],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='helion-simulation-report.txt';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1200);reportCreated=true;updateMissionBoard();log('Laporan simulasi diekspor');
+});
+$('fullscreen').addEventListener('click',async()=>{
+ try{if(!document.fullscreenElement){await document.documentElement.requestFullscreen();log('Mode layar penuh diaktifkan')}else{await document.exitFullscreen();log('Mode layar penuh dinonaktifkan')}}
+ catch(e){log('Layar penuh tidak didukung oleh browser ini',true);}
+});
+
+
+// VMAX mission board and component-health layer.
+const missionIds=['missionStable','missionCooling','missionVacuum','missionReport'];
+let reportCreated=false;
+function setHealth(id,label,level){
+ const el=$(id);el.textContent=label;el.classList.remove('warn','bad');
+ if(level==='warn')el.classList.add('warn');
+ if(level==='bad')el.classList.add('bad');
+}
+function updateMissionBoard(){
+ const uptime=Math.max(0,Math.floor(S.elapsed||0));
+ $('uptimeRead').textContent=String(Math.floor(uptime/60)).padStart(2,'0')+':'+String(uptime%60).padStart(2,'0');
+ const score=Math.round(clamp(S.stable*.65+S.shield*.2+coolReserve*.15));
+ $('opsScore').textContent=score;bar('opsScoreBar',score,score<45?'#ff6672':score<70?'#ffd07a':'#7be3b2');
+ const g=genEff<35?'bad':genEff<55?'warn':'ok';
+ const c=coolReserve<20?'bad':coolReserve<45?'warn':'ok';
+ const coil=coilHealth<45?'bad':coilHealth<65?'warn':'ok';
+ const st=S.stable<45?'bad':S.stable<70?'warn':'ok';
+ setHealth('healthGenerator',g==='bad'?'RENDAH':g==='warn'?'PERLU CEK':'NORMAL',g);
+ setHealth('healthCooling',c==='bad'?'KRITIS':c==='warn'?'MENURUN':'NORMAL',c);
+ setHealth('healthCoil',coil==='bad'?'KRITIS':coil==='warn'?'MENURUN':'NORMAL',coil);
+ setHealth('healthStability',st==='bad'?'RENDAH':st==='warn'?'MENURUN':'NORMAL',st);
+ const levels=[g,c,coil,st];const bad=levels.filter(v=>v==='bad').length,warn=levels.filter(v=>v==='warn').length;
+ setHealth('healthSummary',bad?'PERLU PERHATIAN':warn?'PANTAU':'NORMAL',bad?'bad':warn?'warn':'ok');
+ const done=missionIds.filter(id=>$(id).checked).length;$('missionCount').textContent=done+' / '+missionIds.length;
+}
+$('checkMissions').addEventListener('click',()=>{
+ const goals={
+  missionStable:S.stable>=75,
+  missionCooling:val('cooling')>=65,
+  missionVacuum:val('vacuum')>=75,
+  missionReport:reportCreated
+ };
+ Object.entries(goals).forEach(([id,ok])=>{if(ok)$(id).checked=true});
+ updateMissionBoard();
+ const remaining=missionIds.filter(id=>!$(id).checked).length;
+ log(remaining===0?'MISI SELESAI: semua sasaran operator tercapai':'Pemeriksaan misi selesai • '+remaining+' sasaran belum dicapai',remaining>0);
+});
+$('resetMissions').addEventListener('click',()=>{missionIds.forEach(id=>$(id).checked=false);reportCreated=false;updateMissionBoard();log('Daftar misi direset')});
+$('fullDiagnostic').addEventListener('click',()=>{
+ renderExtra();updateMissionBoard();
+ const notes=[];
+ if(S.stable<70)notes.push('stabilitas perlu dipantau');
+ if(val('cooling')<65||coolReserve<45)notes.push('indeks pendinginan/cadangan rendah');
+ if(val('vacuum')<75)notes.push('indeks vakum di bawah target misi');
+ if(genEff<55)notes.push('efisiensi generator virtual rendah');
+ if(coilHealth<65)notes.push('kondisi kumparan virtual menurun');
+ if(S.shield<65)notes.push('integritas pelindung virtual menurun');
+ log(notes.length?'DIAGNOSTIK VMAX: '+notes.join(' • '):'DIAGNOSTIK VMAX: seluruh pemeriksaan sandbox lolos',notes.length>0);
+});
+$('maintenance').addEventListener('click',()=>{
+ // Gentle in-game recovery only; no real-world procedures or real reactor parameters.
+ coolReserve=clamp(coolReserve+8,0,100);
+ coilHealth=clamp(coilHealth+2,0,100);
+ extraControls.reserveControl.value=coolReserve;
+ extraControls.coilControl.value=coilHealth;
+ setControl('cooling',Math.max(65,val('cooling')));
+ setControl('vacuum',Math.max(75,val('vacuum')));
+ renderExtra();render();updateMissionBoard();
+ log('Pemulihan sandbox diterapkan • indeks virtual diperbarui');
+});
+missionIds.forEach(id=>$(id).addEventListener('change',updateMissionBoard));
+
+updateLabels();renderExtra();updateMissionBoard();log('HELION VMAX Control Room dimuat • standby');S.history=Array.from({length:20},()=>({temp:18,power:0,stable:96}));render();
+let last=0,acc=0;function loop(ts){if(!last)last=ts;acc+=Math.min((ts-last)/1000,.25);last=ts;while(acc>=1){if(S.running){for(let n=0;n<simSpeed;n++)tick()}acc-=1}requestAnimationFrame(loop)}requestAnimationFrame(loop);
+})();
+</script></body></html>
